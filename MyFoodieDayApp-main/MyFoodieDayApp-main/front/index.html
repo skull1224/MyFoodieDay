@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Foodie Day</title>
+    <meta name="author" content="MyFoodieDay" />
+    <meta name="description" content="AI 맛집지도 서비스" />
+    <meta name="keywords" content="명지코딩, 맛집지도, 유튜버맛집, 맛집유튜버"/>
+
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/map.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="inner">
+        <div class="nav-container">
+          <h1 class="nav-title" >My Foodie Day</h1>
+          <!-- <input type="file" id="image-upload" accept="image/*" /> -->
+          <!-- <button id="search-by-image-button">사진으로 검색</button> -->
+
+          <!-- <button>
+            <a href="./mlcode.html">이미지검색사이트로대체수정필요</a>
+          </button> -->
+          <input type="search" class="nav-search" placeholder="검색">
+          
+          <div class="sign-container">
+            <!--비회원-->
+            <div class="unsigned">
+              <a href="./signin.html">로그인</a> <span>/</span> <a href="./signup.html">회원가입</a>
+            </div>
+
+            <!--회원-->
+            <div class="signed hidden">
+              <div class="dropdown">
+                <div class="dropdown-button">
+                  반갑습니다. <span class="nickname"></span> 님!
+                </div>
+                <div class="dropdown-content">
+                  <button id="sign-out">로그아웃</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="category">
+        <div class="inner">
+          <div class="category-container">
+            <div class="category-list">
+              <button class="category-item" id="today">오늘의 추천<div class="button__horizontal"></div>
+                <div class="button__vertical"></div></button>
+              <button class="category-item" id="season">계절별<div class="button__horizontal"></div>
+                <div class="button__vertical"></div></button>
+              <button class="category-item" id="mood">기분별<div class="button__horizontal"></div>
+                <div class="button__vertical"></div></button>
+              <button class="category-item" id="ai">AI검색<div class="button__horizontal"></div>
+                <div class="button__vertical"></div></button>
+            </div>
+
+            <div class="season-options" style="display: none;">
+              <button class="season-option" id="spring">봄 </button>
+              <button class="season-option" id="summer">여름</button>
+              <button class="season-option" id="fall">가을</button>
+              <button class="season-option" id="winter">겨울</button>
+            </div>
+
+            <div class="mood-options" style="display: none;">
+              <button class="mood-option" id="sad">슬픔 </button>
+              <button class="mood-option" id="annoyed">짜증</button>
+              <button class="mood-option" id="happy">행복</button>
+              <button class="mood-option" id="fuzzy">꿀꿀</button>
+            </div>
+
+            <div class="ai-options" style="display: none;">
+              <input type="file" id="image-upload" accept="image/*" class="ai-option">
+            </div>
+            
+           
+          </div>
+        </div>
+      </section>
+      <!-- 카테고리 -->
+      <div id="map" class="inner">
+        <!-- 카카오지도 -->
+        <div id="map"></div>
+      </div>
+    </main>
+
+    <!--axios-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" 
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+    
+    <!-- services 라이브러리 불러오기 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b108403bdf64b1ac0f9f30f0caa6c5cf&libraries=services"></script>
+    <script src="./js/map.js"></script>
+    <!-- <script src="./js/nearMap.js"></script> -->
+    <script src="./js/mlcode.js"></script>
+    <script src="./js/seasonfood.js"></script>
+    <script src="./js/aiSearch.js"></script>
+    <script src="./js/moodfood.js"></script>
+    <script src="./js/recommended.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/signin.js"></script>
+    <script src="./js/signup.js"></script>
+    <script src="./js/certifications.js"></script>
+
+    <!-- mlcode 라이브러리 가져오기-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="./js/mlcode.js"></script>
+    <script>
+      document.querySelector('.nav-title').addEventListener('click', function() {
+        location.reload();
+      });
+    </script>
+  </body>
+</html>
